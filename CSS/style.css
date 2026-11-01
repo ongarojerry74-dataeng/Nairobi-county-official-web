@@ -1,0 +1,133 @@
+/* ==========================================================
+   EXTERNAL CSS (linked from every page with <link rel="stylesheet">)
+   Approach: MOBILE-FIRST. Base rules = phones. min-width media
+   queries at the bottom enhance for tablets (700px) and desktops (1000px).
+   ========================================================== */
+
+/* 1. CSS variables, colours and typography ------------------ */
+:root{--bg:#fafaf9;--card:#fff;--fg:#18181b;--mut:#52525b;--bd:#e4e4e7;
+--pri:#166534;--pri-d:#14532d;--acc:#b45309;--soft:#f0fdf4;--r:12px}
+
+/* 2. Universal + element selectors; BOX MODEL reset --------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0} /* border-box: width includes padding+border */
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:1rem;line-height:1.65;
+background-color:var(--bg);color:var(--fg);overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}          /* responsive images, no horizontal scroll */
+a{color:var(--pri)}
+h1,h2,h3,h4{line-height:1.2;letter-spacing:-.01em}     /* grouped selector */
+p+p{margin-top:.8rem}                                  /* adjacent sibling selector */
+:focus-visible{outline:3px solid var(--acc);outline-offset:2px} /* pseudo-class */
+abbr[title]{text-decoration:underline dotted}          /* attribute selector */
+mark{background:#fef3c7;padding:0 .2em}
+blockquote{border-left:4px solid var(--acc);padding:.5rem 1rem;margin:1rem 0;color:var(--mut);font-style:italic}
+.skip{position:absolute;left:-999px;top:0;background:#fff;padding:.5rem 1rem;z-index:50}  /* POSITIONING: absolute */
+.skip:focus{left:0}
+
+/* 3. Layout helpers: container, FLEXBOX and GRID ------------ */
+.wrap{width:min(1120px,92%);margin-inline:auto}
+.grid{display:grid;gap:1.2rem;grid-template-columns:1fr}            /* CSS GRID: 1 column on mobile */
+.flex{display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;justify-content:space-between} /* FLEXBOX */
+
+/* 4. Top bar and header (POSITIONING: sticky + absolute) ---- */
+.topbar{background:var(--pri-d);color:#ecfdf5;font-size:.85rem;padding:.4rem 0}
+.topbar a{color:#fff}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--bd)}
+.nav{position:relative;display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--fg);font-weight:700;line-height:1.2}
+.logo{width:42px;height:42px;border-radius:10px;background:var(--pri);color:#fff;display:grid;place-items:center;font-weight:800}
+.brand small{display:block;font-weight:500;color:var(--mut);font-size:.75rem}
+.menu-btn{background:none;border:1px solid var(--bd);border-radius:8px;padding:.45rem .8rem;font-size:1.2rem;cursor:pointer}
+#main-menu{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border:1px solid var(--bd);
+border-radius:0 0 var(--r) var(--r);list-style:none;padding:.5rem}
+#main-menu.open{display:block}
+#main-menu a{display:block;padding:.7rem .85rem;border-radius:8px;text-decoration:none;color:var(--mut);font-weight:500}
+#main-menu a:hover{background:var(--soft);color:var(--pri)}
+#main-menu a[aria-current="page"]{background:var(--pri);color:#fff}
+
+/* 5. Hero and page headings --------------------------------- */
+.hero{background:linear-gradient(135deg,#052e16,#166534);color:#fff;padding:3rem 0}
+.hero h1{font-size:2rem;margin-bottom:1rem}
+.hero p{color:#dcfce7;margin-bottom:1.5rem}
+.hero .wrap{display:grid;gap:2rem}
+.panel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:var(--r);padding:1.4rem}
+.page-head{background:var(--soft);border-bottom:1px solid var(--bd);padding:2.2rem 0}
+.page-head h1{font-size:1.9rem}.page-head p{color:var(--mut)}
+
+/* 6. Buttons ------------------------------------------------ */
+.btn{display:inline-block;padding:.7rem 1.2rem;border-radius:8px;border:1px solid transparent;
+font:inherit;font-weight:600;text-decoration:none;cursor:pointer;transition:background-color .2s}
+.btn-pri{background:var(--acc);color:#fff}.btn-pri:hover{background:#92400e}
+.btn-out{border-color:rgba(255,255,255,.7);color:#fff;margin-top:.6rem}
+.btn-g{background:var(--pri);color:#fff}.btn-g:hover{background:var(--pri-d)}
+
+/* 7. Sections and cards (margin, padding, border) ----------- */
+.s{padding:2.5rem 0}
+.alt{background:#fff;border-block:1px solid var(--bd)}
+.t{font-size:1.5rem;margin-bottom:.4rem}
+.lead{color:var(--mut);margin-bottom:1.5rem}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:1.4rem;margin:0}
+.card h3{font-size:1.1rem;margin-bottom:.4rem}
+.card p,.card li{color:var(--mut);font-size:.95rem}
+.card .meta{font-size:.85rem;margin-top:.7rem;padding-top:.7rem;border-top:1px solid var(--bd)}
+.stat{font-size:2rem;font-weight:800;color:var(--pri)}
+.news time{font-size:.8rem;color:var(--acc);font-weight:600}
+.quick a{display:block;text-decoration:none;color:var(--fg);font-weight:600}
+.quick a span{display:block;font-weight:400;color:var(--mut);font-size:.9rem}
+.quick .card:hover{border-color:var(--pri);box-shadow:0 4px 14px rgba(22,101,52,.12)}
+
+/* 8. Leader cards (figure + figcaption) --------------------- */
+.leader{padding:0;overflow:hidden;text-align:center}
+.leader img{width:100%;aspect-ratio:5/6;object-fit:cover}
+.leader figcaption{padding:1.1rem}
+.leader h3{margin:0}
+.leader .role{color:var(--acc);font-weight:600;font-size:.9rem}
+
+/* 9. SPECIFICITY demo ---------------------------------------
+   Order of strength: inline style > #id > .class > element.
+   .card p        (0,1,1) beats  p        (0,0,1)
+   .leader .role  (0,2,0) beats  .role    (0,1,0)
+   #contact-form button (1,0,1) beats .btn-g (0,1,0) */
+#contact-form button{margin-top:1rem}
+p.note{font-size:.85rem;color:var(--mut)}
+
+/* 10. Forms -------------------------------------------------- */
+fieldset{border:0}
+label{display:block;font-weight:600;font-size:.9rem;margin:.9rem 0 .3rem}
+input,textarea{width:100%;padding:.7rem .8rem;border:1px solid var(--bd);border-radius:8px;font:inherit;background:#fff}
+textarea{min-height:140px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--pri)}
+.hp{position:absolute;left:-9999px}                    /* honeypot field hidden from people */
+#status{margin-top:.8rem;font-weight:600}
+address{font-style:normal}
+iframe{width:100%;height:280px;border:1px solid var(--bd);border-radius:var(--r)}
+
+/* 11. Footer and back-to-top (POSITIONING: fixed) ----------- */
+.site-footer{background:#052e16;color:#d1fae5;padding:2.5rem 0 1.5rem}
+.site-footer a{color:#d1fae5}.site-footer h2{font-size:1rem;color:#fff;margin-bottom:.6rem}
+.site-footer ul{list-style:none}.site-footer li{margin:.3rem 0}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:2rem;padding-top:1rem;font-size:.85rem}
+.to-top{position:fixed;right:1rem;bottom:1rem;width:44px;height:44px;border-radius:50%;background:var(--pri);color:#fff;
+display:grid;place-items:center;text-decoration:none;z-index:30}
+
+/* ==========================================================
+   MEDIA QUERIES (mobile-first: min-width, enhancing upward)
+   ========================================================== */
+@media (min-width:700px){                       /* TABLET */
+  .grid.g2,.grid.g3,.grid.g4{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:2.6rem}
+  .menu-btn{display:none}
+  #main-menu{display:flex;position:static;border:0;padding:0;gap:.25rem;background:none}
+  #main-menu a{padding:.5rem .85rem;font-size:.95rem}
+  .btn-out{margin:0 0 0 .5rem}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+}
+@media (min-width:1000px){                      /* DESKTOP */
+  .grid.g3{grid-template-columns:repeat(3,1fr)}
+  .grid.g4{grid-template-columns:repeat(4,1fr)}
+  .hero{padding:4.5rem 0}
+  .hero .wrap{grid-template-columns:1.3fr 1fr;align-items:center}
+  .hero h1{font-size:3.2rem}
+  .s{padding:3.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

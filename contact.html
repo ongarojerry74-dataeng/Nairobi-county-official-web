@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact | Nairobi City County</title>
+  <meta name="description" content="Contact Nairobi City County: address, office hours, location and contact form.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+<a class="skip" href="#content">Skip to main content</a>
+
+<aside class="topbar" aria-label="Helpline">
+  <div class="wrap flex">
+    <span>Helpline: <a href="tel:+254725624489">+254 725 624489</a> / <a href="tel:+254202224281">+254 20 2224281</a></span>
+    <span><a href="mailto:info@nairobi.go.ke">info@nairobi.go.ke</a></span>
+  </div>
+</aside>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html"><span class="logo" aria-hidden="true">NCC</span><span>Nairobi City County<small>Official County Portal</small></span></a>
+    <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-menu" type="button">&#9776;</button>
+    <nav aria-label="Main navigation">
+      <ul id="main-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="departments.html">Departments</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <header class="page-head"><div class="wrap"><h1>Contact us</h1><p>We welcome your questions, feedback and service requests.</p></div></header>
+
+  <section class="s">
+    <div class="wrap two">
+      <div>
+        <section class="card">
+          <h2>City Hall</h2>
+          <address>City Hall Way, opposite KICC<br>P.O. Box 30075-00100, Nairobi, Kenya</address>
+          <p class="meta"><strong>Helpline:</strong> <a href="tel:+254725624489">+254 725 624489</a> / <a href="tel:+254202224281">+254 20 2224281</a><br>
+          <strong>Email:</strong> <a href="mailto:info@nairobi.go.ke">info@nairobi.go.ke</a><br>
+          <strong>Governor's office:</strong> <a href="mailto:governor@nairobi.go.ke">governor@nairobi.go.ke</a></p>
+          <p class="meta"><strong>Office hours:</strong> Monday to Friday, 8:00 am to 5:00 pm. Hours of individual service points may vary.</p>
+        </section>
+        <h2 style="margin:1.5rem 0 .6rem;font-size:1.2rem">Location</h2>
+        <iframe title="Map of Nairobi City Hall" loading="lazy" src="https://www.google.com/maps?q=Nairobi+City+Hall&output=embed"></iframe>
+      </div>
+
+      <section class="card">
+        <h2>Send us a message</h2>
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID (formspree.io) -->
+        <form id="contact-form" action="https://formspree.io/f/mvkkwqnv" method="POST">
+          <fieldset>
+            <legend class="note">All fields are required.</legend>
+            <label for="fullname">Full name</label>
+            <input id="fullname" type="text" name="name" required autocomplete="name" placeholder="Jane Wanjiru">
+            <label for="email">Email address</label>
+            <input id="email" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" name="subject" required placeholder="Business permit enquiry">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required minlength="10" placeholder="How can we help?"></textarea>
+            <!-- Spam trap: hidden from people, bots fill it in -->
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+          </fieldset>
+          <button class="btn btn-g" type="submit">Send message</button>
+          <button class="btn" type="reset" style="border-color:#e4e4e7;margin-left:.5rem">Clear</button>
+          <p id="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap grid g3">
+    <section><h2>Nairobi City County</h2><p>A city of order and dignity; hope and opportunities for all.</p></section>
+    <section><h2>Explore</h2><ul><li><a href="about.html">About the County</a></li><li><a href="departments.html">Departments</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></section>
+    <section><h2>Reach us</h2><p>City Hall, P.O. Box 30075-00100, Nairobi<br><a href="mailto:info@nairobi.go.ke">info@nairobi.go.ke</a></p></section>
+  </div>
+  <div class="wrap copy">&copy; <span class="yr">2026</span> Nairobi City County Government. Demonstration portal.</div>
+</footer>
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+<script src="script.js"></script>
+</body>
+</html>
